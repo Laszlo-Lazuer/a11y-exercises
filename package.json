@@ -1,5 +1,6 @@
 {
   "name": "a11y-exercises",
+  "homepage": "http://laszlo-lazuer.github.io/a11y-exercises",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,5 +31,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.0.0",
+    "node-sass": "^4.14.1",
+    "react-router-dom": "^5.2.0"
   }
 }
