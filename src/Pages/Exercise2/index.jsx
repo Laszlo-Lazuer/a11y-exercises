@@ -30,7 +30,7 @@ const Exercise2 = () => {
     return <Fragment>
         <div style={{textAlign: 'center'}}>
             <h1>Exercise 2</h1>
-            <Link to="/">Return Home</Link>
+            <Link to={`${process.env.PUBLIC_URL}/`}>Return Home</Link>
         </div>
         {samplePage}
     </Fragment>;
