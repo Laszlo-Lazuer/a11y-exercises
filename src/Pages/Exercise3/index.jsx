@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import './styles.scss';
 import {Link} from "react-router-dom";
 
-const Exercise1 = () => {
+const Exercise3 = () => {
     const [hcolor, setHcolor] = useState('#efefef');
     const [pcolor, setPcolor] = useState('#f2f2f2');
     const [showControls, setShowControls] = useState(false);
@@ -68,12 +68,11 @@ const Exercise1 = () => {
         </div>
 
         <div className={'control-wrapper'}>
-            <button style={{display:'block'}} className={'change-color-btn'} onClick={() => setShowControls(!showControls)}>{(!showControls) ? 'Show controls':'Hide controls'}</button>
-
+            <button style={{display:'block'}} className={'change-color-btn'} onClick={() => setShowControls(!showControls)}>{(!showControls) ? 'Show modifiers':'Hide modifiers'}</button>
             {ColorInput}
         </div>
         {samplePage}
     </Fragment>;
 };
 
-export default Exercise1;
+export default Exercise3;
