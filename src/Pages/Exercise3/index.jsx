@@ -51,10 +51,9 @@ const Exercise3 = () => {
                     <h3 style={{color: hcolor}}>Blueberry Pancakes</h3>
                     <p className="w3-text-greys" style={{color: pcolor}}>With syrup, butter and lots of berries 8.50</p>
                 </div>
-
-                <div className="w3-col l6 w3-padding-large">
-                    <button onClick={() => Click()}>Order</button>
-                </div>
+            </div>
+            <div className="w3-col l6 w3-padding-large">
+                <button onClick={() => Click()}>Order</button>
             </div>
         </div>
     </Fragment>;
