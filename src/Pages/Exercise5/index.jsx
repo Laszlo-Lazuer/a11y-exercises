@@ -1,77 +1,75 @@
 import React, { Fragment, useState } from "react";
 import './styles.scss';
 import {Link} from "react-router-dom";
+import LogoImg from './img/img_logo.png'
 
 const Exercise5 = () => {
-    const [hcolor, setHcolor] = useState('#efefef');
-    const [pcolor, setPcolor] = useState('#f2f2f2');
-    const [showControls, setShowControls] = useState(false);
-    const Click = () => {
-        return(
-        alert('Continue!'));
-    };
-
-    const ChangeHColor = () => {
-        const colorFromInput  = document.getElementById('color-set').value;
-        return (setHcolor((colorFromInput !== "") ? colorFromInput:hcolor));
-    };
+    const [fName, setFName] = useState('');
+    const [lName, setLName] = useState('');
+    const [showControls, setShowControls] = useState(true);
 
     const ChangePColor = () => {
-        const colorFromInput  = document.getElementById('p-color-set').value;
-        return (setPcolor((colorFromInput !== "") ? colorFromInput:hcolor));
+        const firstName  = document.getElementById('p-color-set').value;
+        const lastName  = document.getElementById('color-set').value;
+        setFName((firstName !== "") ? firstName:fName);
+        setLName((lastName !== "") ? lastName:lName);
+        return ;
     };
 
     const ColorInput = (showControls) ? <Fragment>
-        <label htmlFor="color-set">Update H3 Color</label>
-        <input placeholder={'#ffffff'} id={'color-set'} name={'change-color'}/>
-        <button className={'change-color-btn'} onClick={() => ChangeHColor()}>Set Color</button>
+        <label>First Name:</label>
+        <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Johnny'} id={'p-color-set'} name={'p-change-color'}/>
         <br />
-        <label htmlFor="p-color-set">Update text Color</label>
-        <input placeholder={'#ffffff'} id={'p-color-set'} name={'p-change-color'}/>
-        <button className={'change-color-btn'} onClick={() => ChangePColor()}>Set Color</button>
-        <hr />
+        <label>Last Name:</label>
+        <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Appleseed'} id={'color-set'} name={'change-color'}/>
+        <br />
+        <button style={{marginTop: '20px'}} className={'change-color-btn'} onClick={() => ChangePColor()}>{(lName === "" && fName === "") ? "Log Name":"Saved!"}</button>
     </Fragment>: null;
 
-    const samplePage = <Fragment>
-        <div className="w3-content" style={{maxWidth:"1100px"}}>
-            <div className="w3-row w3-padding-64" id="menu">
-                <div className="w3-col l6 w3-padding-large">
-                    <h2 className="w3-center">Our Menu</h2><br />
-                    <p className="w3-text-greys" style={{color: pcolor}}>Assortment of fresh baked fruit breads and muffins 5.50</p><br />
+    const formExample =
+        <Fragment>
+            <form method="post" style={{border:'1px solid #4f4f4f', width:'370px', margin: '0 auto', textAlign:'right', padding: '1rem'}}>
+                <label htmlFor={'first-name'}>First Name:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Johnny'} id={'first-name'} name={'change-color'}/>
+                <br />
+                <label htmlFor={'last-name'}>Last Name:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Appleseed'}  name={'change-color'}/>
+                <br />
+                <label htmlFor={'shirt-size'}>Shirt Size:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Size'} id={'shirt-size'} name={'change-color'}/>
+                <br />
+                <label htmlFor={'phone-number'}>Phone #:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'000-000-0000'} id={'phone-number'} name={'change-color'}/>
+                <br />
+                <label htmlFor={'address-st'}>Street Address:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'1234 Fake Street'} id={'address-st'} name={'change-color'}/>
+                <br />
+                <label>City:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'El Paso'} name={'change-color'}/>
+                <br />
+                <label htmlFor={'address-state'}>State:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'TX'} id={'first-name'} name={'change-color'}/>
+                <br />
+                <label htmlFor={'first-name'}>Zip:</label>
+                <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'00000'} id={'color-set'} name={'change-color'}/>
+                <br />
+            </form>
+        </Fragment>;
 
-                    <h3 style={{color: hcolor}}>Honey Almond Granola with Fruits</h3>
-                    <p className="w3-text-greys" style={{color: pcolor}}>Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br />
+    const welcome = <h3 style={{color: '#4d4d4d'}}>Welcome {fName} {lName}!</h3>;
 
-                    <h3 style={{color: hcolor}}>Belgian Waffle</h3>
-                    <p className="w3-text-greys" style={{color: pcolor}}>Vanilla flavored batter with malted flour 7.50</p><br />
-
-                    <h3 style={{color: hcolor}}>Scrambled eggs</h3>
-                    <p className="w3-text-greys" style={{color: pcolor}}>Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br />
-
-                    <h3 style={{color: hcolor}}>Blueberry Pancakes</h3>
-                    <p className="w3-text-greys" style={{color: pcolor}}>With syrup, butter and lots of berries 8.50</p>
-                </div>
-            </div>
-            <div className="w3-col l6 w3-padding-large">
-                <button onClick={() => Click()}>Order</button>
-            </div>
-        </div>
-    </Fragment>;
-
-
-
-    return <Fragment>
+    return <div>
         <div style={{textAlign: 'center'}}>
-            <h1>Exercise 3</h1>
+            <h1>Exercise 6</h1>
             <Link to={`${process.env.PUBLIC_URL}/`}>Return Home</Link>
-        </div>
 
-        <div className={'control-wrapper'}>
-            <button style={{display:'block'}} className={'change-color-btn'} onClick={() => setShowControls(!showControls)}>{(!showControls) ? 'Show modifiers':'Hide modifiers'}</button>
-            {ColorInput}
+            <div style={{marginTop:'50px'}}>
+                <img src={LogoImg}  style={{width:"30%"}} />
+                {formExample}
+                <button style={{marginTop: '20px', color: '#107DAC'}} className={'change-color-btn'} onClick={() => alert('Thank you!')}>Submit</button>
+            </div>
         </div>
-        {samplePage}
-    </Fragment>;
+    </div>;
 };
 
 export default Exercise5;
