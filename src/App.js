@@ -31,10 +31,10 @@ function App() {
             <Route path={`${process.env.PUBLIC_URL}/ex4`}>
               <Exercise4 />
             </Route>
-            <Route path={`${process.env.PUBLIC_URL}/ex6`}>
+            <Route path={`${process.env.PUBLIC_URL}/ex5`}>
               <Exercise5 />
             </Route>
-            <Route path={`${process.env.PUBLIC_URL}/ex5`}>
+            <Route path={`${process.env.PUBLIC_URL}/ex6`}>
               <Exercise6 />
             </Route>
             <Route path={`${process.env.PUBLIC_URL}/`}>
