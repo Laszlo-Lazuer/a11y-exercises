@@ -39,7 +39,6 @@ const Nav = () => {
                 <Link to={`${process.env.PUBLIC_URL}/ex6`}>Exercise 6</Link>
             </li>
         </ul>
-
     </nav>;
 };
 
