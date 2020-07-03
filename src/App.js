@@ -13,6 +13,7 @@ import Exercise3 from './Pages/Exercise3/index';
 import Exercise4 from './Pages/Exercise4/index';
 import Exercise5 from './Pages/Exercise5/index';
 import Exercise6 from './Pages/Exercise6/index';
+import Exercise7 from './Pages/Exercise7/index';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path={`${process.env.PUBLIC_URL}/ex6`}>
               <Exercise6 />
+            </Route>
+            <Route path={`${process.env.PUBLIC_URL}/ex7`}>
+              <Exercise7 />
             </Route>
             <Route path={`${process.env.PUBLIC_URL}/`}>
               <Home />
