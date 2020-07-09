@@ -36,6 +36,15 @@ const Nav = () => {
                 <Link to={`${process.env.PUBLIC_URL}/ex7`}>Exercise 7</Link>
             </li>
         </ul>
+        <h2>Homework 5 (Due: 07/10):</h2>
+        <ul>
+            <li>
+                <Link to={`${process.env.PUBLIC_URL}/ex8`}>Exercise 8</Link>
+            </li>
+            <li>
+                <Link to={`${process.env.PUBLIC_URL}/ex9`}>Exercise 9</Link>
+            </li>
+        </ul>
     </nav>;
 };
 

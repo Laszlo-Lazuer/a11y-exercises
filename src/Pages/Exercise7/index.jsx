@@ -41,11 +41,10 @@ const Exercise7 = () => {
 
     return <div>
         <div style={{textAlign: 'center'}}>
-            <h1>Exercise 6</h1>
+            <h1>Exercise 7</h1>
             <Link to={`${process.env.PUBLIC_URL}/`}>Return Home</Link>
             <div style={{marginTop: '50px'}}>
                 <img src={LogoImg} style={{width: "30%"}}/>
-                <h4 style={{fontSize: '30px'}}>Exercise 7</h4>
                 {formExample}
             </div>
         </div>

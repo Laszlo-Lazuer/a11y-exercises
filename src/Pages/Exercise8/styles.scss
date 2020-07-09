@@ -5,3 +5,20 @@ input.edited:invalid {
 input:focus:invalid {
   outline: none;
 }
+
+.ex-container {
+  display: flex;
+  flex-direction: column;
+
+  &--item {
+    margin: 0 auto;
+    width: 75%;
+
+    &:nth-child(2),
+    &:nth-child(4){
+      position: absolute !important;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+    }
+  }
+}

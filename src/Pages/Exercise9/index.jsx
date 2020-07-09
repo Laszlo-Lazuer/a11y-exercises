@@ -30,22 +30,25 @@ const Exercise7 = () => {
     </Fragment> : null;
 
     const formExample =
-        <div>
-            <p>A British businessman has racked up 2 million flyer miles and plans to
-                travel on the world's first commercial tourism flights to space.</p>
-
-            <p><a href="ff.html">Read More...</a></p>
+        <div className={'question-wrapper'}>
+            <h3>Practice Questions</h3>
+            <div className={'question-wrapper--questions'}>
+                <ol>
+                    <li>Theoretical Models of Disability: How does the <strong>MEDICAL MODEL</strong> define accessibility?</li>
+                    <li>Theoretical Models of Disability: How does the <strong>ECONOMIC MODEL</strong> define accessibility?</li>
+                    <li>Theoretical Models of Disability: How does the <strong>SOCIAL MODEL</strong> define accessibility?</li>
+                    <li>Theoretical Models of Disability: How does the <strong>SOCIAL IDENTITY MODEL</strong> define accessibility?</li>
+                    <li>Theoretical Models of Disability: How does the <strong>FUNCTIONAL SOLUTIONS MODEL</strong> define accessibility?</li>
+                </ol>
+            </div>
         </div>;
-
-    const welcome = <h3 style={{color: '#4d4d4d'}}>Welcome {fName} {lName}!</h3>;
 
     return <div>
         <div style={{textAlign: 'center'}}>
-            <h1>Exercise 6</h1>
+            <h1>Exercise 9</h1>
             <Link to={`${process.env.PUBLIC_URL}/`}>Return Home</Link>
             <div style={{marginTop: '50px'}}>
                 <img src={LogoImg} style={{width: "30%"}}/>
-                <h4 style={{fontSize: '30px'}}>Exercise 7</h4>
                 {formExample}
             </div>
         </div>

@@ -30,22 +30,25 @@ const Exercise7 = () => {
     </Fragment> : null;
 
     const formExample =
-        <div>
-            <p>A British businessman has racked up 2 million flyer miles and plans to
-                travel on the world's first commercial tourism flights to space.</p>
+        <div className={'ex-container'}>
+            <div className={'ex-container--item'}><button>Visible</button></div>
+            <div className={'ex-container--item'}><button>Hidden content?</button></div>
+            <div className={'ex-container--item'}><button>Visible</button></div>
+            <div className={'ex-container--item'}><button>Hidden content?</button></div>
+            {/*<p>A British businessman has racked up 2 million flyer miles and plans to*/}
+            {/*    travel on the world's first commercial tourism flights to space.</p>*/}
 
-            <p><a href="ff.html">Read More...</a></p>
+            {/*<p><a href="ff.html">Read More...</a></p>*/}
         </div>;
 
     const welcome = <h3 style={{color: '#4d4d4d'}}>Welcome {fName} {lName}!</h3>;
 
     return <div>
         <div style={{textAlign: 'center'}}>
-            <h1>Exercise 6</h1>
+            <h1>Exercise 8</h1>
             <Link to={`${process.env.PUBLIC_URL}/`}>Return Home</Link>
             <div style={{marginTop: '50px'}}>
-                <img src={LogoImg} style={{width: "30%"}}/>
-                <h4 style={{fontSize: '30px'}}>Exercise 7</h4>
+                <img src={LogoImg} alt={'img/2093948230918'} style={{width: "30%"}}/>
                 {formExample}
             </div>
         </div>
