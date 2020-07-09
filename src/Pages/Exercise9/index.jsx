@@ -48,7 +48,7 @@ const Exercise7 = () => {
             <h1>Exercise 9</h1>
             <Link to={`${process.env.PUBLIC_URL}/`}>Return Home</Link>
             <div style={{marginTop: '50px'}}>
-                <img src={LogoImg} style={{width: "30%"}}/>
+                <img src={LogoImg} alt={'squirrely squirrels incorportated'} style={{width: "30%"}}/>
                 {formExample}
             </div>
         </div>
