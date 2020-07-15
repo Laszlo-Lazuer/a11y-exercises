@@ -1,0 +1,25 @@
+input.edited:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+.question-wrapper {
+  h3 {
+    color: #4d4d4d;
+  }
+
+  &--questions {
+    text-align: left;
+    width: 50%;
+    min-width: 400px;
+    margin: 0 auto;
+    font-size: 16px;
+
+    & li {
+      margin-bottom: 5px;
+    }
+  }
+}
