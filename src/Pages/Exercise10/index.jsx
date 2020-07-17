@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useState, useEffect} from "react";
 import './styles.scss';
 import {Link} from "react-router-dom";
 import LogoImg from './img/img_logo.png'
@@ -9,22 +9,49 @@ const Exercise10 = () => {
     const [randVal, setRandVal] = useState('');
     const [showControls, setShowControls] = useState(true);
 
-    let sampleObj = {     // an object
-        first: 'Question one',
-        second: 'Question two',
-        three: 'Question three',
-        four: 'Question four',
-        five: 'Question five',
-        six: 'Question six',
-        seven: 'Question seven',
-        eight: 'Question eight',
-        nine: 'Question nine',
-        ten: 'Question ten',
-    };
+    // Timer
+    const [seconds, setSeconds] = useState(10);
+    const [isActive, setIsActive] = useState(false);
+
+    function toggle() {
+        setIsActive(!isActive);
+    }
+
+    function reset() {
+        setSeconds(10);
+        setIsActive(false);
+    }
+
+    // Timer
+
+    const questionSet = [
+        'Theoretical Models of Disability: How does the MEDICAL MODEL define accessibility?',
+        'Theoretical Models of Disability: How does the ECONOMIC MODEL define accessibility?',
+        'Theoretical Models of Disability: How does the SOCIAL MODEL define accessibility?',
+        'Theoretical Models of Disability: How does the SOCIAL IDENTITY MODEL define accessibility?',
+        'Theoretical Models of Disability: How does the FUNCTIONAL SOLUTIONS MODEL define accessibility?',
+        'What is the function of the AFFECTIVE Network of the brain?',
+        'Seizures with no apparent trigger and occur two or more times are WHAT kind of seizure?',
+        'Seizures caused by brain disorders such as structural abnormalities, stoke, or tumors are called...',
+        'Provoked seizures caused by stroke, drugs, or head injury are called...',
+        'In order, what are the three classifications when determining the magnitude and type of a speech disorder?',
+        'Impaired communication skills, Impaired Social Skills, and Restrictive or repetitive Behavior or Interests are symptoms of...',
+        'Define "APHASIA"',
+        'Define "DYSARTHRIA"',
+        'A speech disorder in which a person has trouble saying what they want to correctly and consistently is called...',
+        'Reading and Math Disabilities can be a result of... (mark all that apply)',
+        'A learning disability that affects writing abilities is called...',
+        'The difficulty in learning or comprehending arithmetic, such as difficulty in understanding numbers, learning how to manipulate numbers, performing mathematical calculations, and learning facts in mathematics is called...',
+        'Language and Literacy: money, time and numbers, self-direction -- These are examples of...',
+        'Activities of daily learning/personal care, occupational skills, healthcare, travel/transportation, schedules/routines, safety, use of money -- The are examples of...',
+        'Interpersonal Skills, Responsibility, Self-esteem, gullibility, naivete, problem-solving, the ability to follow rules/obey laws, and avoiding being victimized are examples of...'
+    ]
+
+    let sampleObj = Object.assign({}, questionSet);
 
     const randomProperty = function (obj) {
         let keys = Object.keys(obj);
-        return obj[keys[ keys.length * Math.random() << 0]];
+        return obj[keys[keys.length * Math.random() << 0]];
     };
 
     const ChangePColor = () => {
@@ -35,32 +62,39 @@ const Exercise10 = () => {
         return;
     };
 
-    const ColorInput = (showControls) ? <Fragment>
-        <label>First Name:</label>
-        <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Johnny'}
-               id={'p-color-set'} name={'p-change-color'}/>
-        <br/>
-        <label>Last Name:</label>
-        <input style={{borderTop: 'none', borderRight: 'none', borderLeft: 'none'}} placeholder={'Appleseed'}
-               id={'color-set'} name={'change-color'}/>
-        <br/>
-        <button style={{marginTop: '20px'}} className={'change-color-btn'}
-                onClick={() => ChangePColor()}>{(lName === "" && fName === "") ? "Log Name" : "Saved!"}</button>
-    </Fragment> : null;
+    const formExample = null;
 
-    const formExample =
-        <div className={'question-wrapper'}>
-            <h3>Practice Questions</h3>
-            <div className={'question-wrapper--questions'}>
-                <ol>
-                    <li>Theoretical Models of Disability: How does the <strong>MEDICAL MODEL</strong> define accessibility?</li>
-                    <li>Theoretical Models of Disability: How does the <strong>ECONOMIC MODEL</strong> define accessibility?</li>
-                    <li>Theoretical Models of Disability: How does the <strong>SOCIAL MODEL</strong> define accessibility?</li>
-                    <li>Theoretical Models of Disability: How does the <strong>SOCIAL IDENTITY MODEL</strong> define accessibility?</li>
-                    <li>Theoretical Models of Disability: How does the <strong>FUNCTIONAL SOLUTIONS MODEL</strong> define accessibility?</li>
-                </ol>
-            </div>
-        </div>;
+    useEffect(() => {
+        let interval = null;
+        if (randVal === '') {
+            setRandVal(randomProperty(sampleObj));
+        }
+
+        // if (randVal !=== '' && randVal.indexOf(':')) {
+        //
+        // }
+
+        if (isActive) {
+            interval = setInterval(() => {
+                setSeconds(seconds => seconds - 1);
+            }, 1000);
+
+            if (seconds === 0) {
+                reset();
+                setRandVal(randomProperty(sampleObj));
+                console.log('timer done!');
+                // setSeconds(10);
+                setIsActive(true);
+            }
+        } else if (!isActive && seconds !== 0) {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [isActive, seconds]);
+
+    const question = (randVal.indexOf(':') > -1 ) ? randVal.split(':'): randVal;
+
+
 
     return <div>
         <div style={{textAlign: 'center'}}>
@@ -69,9 +103,29 @@ const Exercise10 = () => {
             <div style={{marginTop: '50px'}}>
                 <img src={LogoImg} alt={'squirrely squirrels incorportated'} style={{width: "30%"}}/>
                 {formExample}
-                Sample: {randVal}
                 <br/>
-                <button onClick={() => setRandVal(randomProperty(sampleObj))}>New Question</button>
+                <h3 style={{color: '#4d4d4d'}}>Question</h3>
+                <br/>
+
+                {/*{(question.isArray())} ?*/}
+
+                {/*<h4>{randVal.split(':')[0]}</h4>*/}
+                {/*<h4>{randVal.split(':')[1]}</h4>*/}
+                <h4>{question}</h4>
+            {/*:*/}
+            {/*<p>not array</p>*/}
+            {/*}*/}
+                <br/>
+                {seconds}s
+                <br/>
+                <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}
+                        onClick={toggle}>
+                    {isActive ? 'Pause' : 'Start'}
+                </button>
+                <button className="button" onClick={reset}>
+                    Reset
+                </button>
+                {/*<button onClick={() => setRandVal(randomProperty(sampleObj))}>New Question</button>*/}
             </div>
         </div>
     </div>;
