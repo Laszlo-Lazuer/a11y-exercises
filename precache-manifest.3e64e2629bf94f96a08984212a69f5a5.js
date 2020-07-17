@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "946d792f2321675c186b5a405994b970",
+    "revision": "6478e592ef98e1c36beebbd54c9d6ccd",
     "url": "/a11y-exercises/index.html"
   },
   {
-    "revision": "b175ecaf16bb23fa01a7",
-    "url": "/a11y-exercises/static/css/main.9f6d2fa1.chunk.css"
+    "revision": "73694d3f5b4fd4352738",
+    "url": "/a11y-exercises/static/css/main.03199088.chunk.css"
   },
   {
-    "revision": "6a2514c2826169c10f0f",
-    "url": "/a11y-exercises/static/js/2.2a8398a7.chunk.js"
+    "revision": "1783544e31dc5b10eff9",
+    "url": "/a11y-exercises/static/js/2.e480ffca.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/a11y-exercises/static/js/2.2a8398a7.chunk.js.LICENSE.txt"
+    "url": "/a11y-exercises/static/js/2.e480ffca.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b175ecaf16bb23fa01a7",
-    "url": "/a11y-exercises/static/js/main.f3525b38.chunk.js"
+    "revision": "73694d3f5b4fd4352738",
+    "url": "/a11y-exercises/static/js/main.2c472761.chunk.js"
   },
   {
     "revision": "a367dcce6bf2b89d3c0f",
