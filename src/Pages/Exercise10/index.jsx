@@ -3,6 +3,7 @@ import './styles.scss';
 import {Link} from "react-router-dom";
 import LogoImg from './img/img_logo.png'
 
+const timerSeconds = 30;
 const Exercise10 = () => {
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
@@ -10,7 +11,7 @@ const Exercise10 = () => {
     const [showControls, setShowControls] = useState(true);
 
     // Timer
-    const [seconds, setSeconds] = useState(10);
+    const [seconds, setSeconds] = useState(timerSeconds);
     const [isActive, setIsActive] = useState(false);
 
     function toggle() {
@@ -18,7 +19,7 @@ const Exercise10 = () => {
     }
 
     function reset() {
-        setSeconds(10);
+        setSeconds(timerSeconds);
         setIsActive(false);
     }
 
@@ -82,8 +83,6 @@ const Exercise10 = () => {
             if (seconds === 0) {
                 reset();
                 setRandVal(randomProperty(sampleObj));
-                console.log('timer done!');
-                // setSeconds(10);
                 setIsActive(true);
             }
         } else if (!isActive && seconds !== 0) {
@@ -117,6 +116,7 @@ const Exercise10 = () => {
             {/*}*/}
                 <br/>
                 {seconds}s
+                <br/>
                 <br/>
                 <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}
                         onClick={toggle}>
